@@ -18,3 +18,12 @@ with sync_playwright() as playwright:
     checkbox=page.get_by_role('checkbox',name="Default checkbox")
     checkbox.highlight()
     checkbox.check()
+
+    # Email
+    email_input=page.get_by_label("Email address")
+    email_input.highlight()
+    page.get_by_label("Password").highlight()
+    page.get_by_label("Example textarea").highlight()
+
+    page.get_by_placeholder('Enter email').highlight()
+    page.get_by_placeholder("Password").highlight()
