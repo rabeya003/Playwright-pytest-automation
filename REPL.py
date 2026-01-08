@@ -11,6 +11,8 @@ with sync_playwright() as playwright:
     btn=page.get_by_role('button',name="Default button")
     btn.highlight()
     btn.click()
+
+    # ROLE
     #Radio btn 
     radio_btn=page.get_by_role('radio',name="Option one is this and that-be sure to include why it's great")
     radio_btn.highlight()
@@ -19,7 +21,8 @@ with sync_playwright() as playwright:
     checkbox.highlight()
     checkbox.check()
 
-    # Email
+
+    # Label & Email
     email_input=page.get_by_label("Email address")
     email_input.highlight()
     page.get_by_label("Password").highlight()
@@ -27,3 +30,12 @@ with sync_playwright() as playwright:
 
     page.get_by_placeholder('Enter email').highlight()
     page.get_by_placeholder("Password").highlight()
+
+    # Text
+    page.get_by_text("with muted text").highlight()
+    page.get_by_text("Small button").highlight()
+    page.get_by_text("Middle").click()
+
+    page.get_by_text("fine print",exact=False).highlight()
+    page.get_by_text("attr",exact=False).highlight()
+
