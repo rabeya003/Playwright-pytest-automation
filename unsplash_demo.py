@@ -13,3 +13,6 @@ with sync_playwright() as playwright:
     # # Locating with CSS Selectors
     # page.locator("css=h1").highlight()
     # page.locator("footer").highlight()
+
+
+page.locator("nav.bg-dark a.nav-link.active").highlight()

@@ -1,19 +1,18 @@
 from playwright.sync_api import sync_playwright
 
 with sync_playwright() as playwright:
-    browser = playwright.chromium.launch(headless=False, slow_mo=1500)
-    page = browser.new_page()
+    browser=playwright.chromium.launch(headless=False,slow_mo=3500)
+    
+    #create a new page
+    page=browser.new_page()
 
+  # Visit the Bootswatch website
     page.goto("https://bootswatch.com/default")
 
-    # Highlight the h1
-    page.locator("h1").evaluate(
-        "el => el.style.outline = '3px solid red'"
+    # Visually highlight the active nav link
+    page.locator("nav.bg-dark a.nav-link.active").evaluate(
+        "el => el.style.outline = '4px solid red'"
     )
 
-    # Highlight the button
-    page.locator("button.btn-outline-success").evaluate(
-        "el => el.style.outline = '3px solid blue'"
-    )
-
+    # Keep browser open for inspection
     page.pause()
