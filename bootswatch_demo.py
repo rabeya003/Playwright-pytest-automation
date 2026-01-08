@@ -39,3 +39,5 @@ with sync_playwright() as playwright:
     page.get_by_text("fine print",exact=False).highlight()
     page.get_by_text("attr",exact=False).highlight()
 
+
+
