@@ -40,15 +40,12 @@ with sync_playwright() as playwright:
     page.get_by_text("attr",exact=False).highlight()
 
 
-    # Highlight the h1
-    page.locator("h1").evaluate(
-        "el => el.style.outline = '3px solid red'"
+    
+    # Visually highlight the active nav link
+    page.locator("nav.bg-dark a.nav-link.active").evaluate(
+        "el => el.style.outline = '4px solid red'"
     )
 
-    # Highlight the button
-    page.locator("button.btn-outline-success").evaluate(
-        "el => el.style.outline = '3px solid blue'"
-    )
-
+    # Keep browser open for inspection
     page.pause()
 
