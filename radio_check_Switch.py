@@ -13,6 +13,19 @@ with sync_playwright() as p:
     radio_option1.scroll_into_view_if_needed()
     radio_option1.check()
     radio_option2.check()  # switch selection
+    # Checkbox (exact label text)
+    checkbox = page.get_by_label("Default checkbox").first
+    checkbox.scroll_into_view_if_needed()
+    checkbox.check()
+    checkbox.uncheck()
+    checkbox.set_checked(True)
+    checkbox.set_checked(False)
+
+    # Switch (exact label text)
+    switch = page.get_by_label("Checked switch checkbox input").first
+    switch.scroll_into_view_if_needed()
+    switch.uncheck()
+    switch.check()
 
 
     page.wait_for_timeout(8000)
