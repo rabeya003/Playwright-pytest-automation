@@ -23,5 +23,10 @@ with sync_playwright() as p:
 
         page.wait_for_timeout(8000)
 
+
+
+        page.locator("xpath=//h1[contains(normalize-space(.), 'Head')]").first.highlight()
+        page.locator("xpath=//button[contains(@class,'btn-outline-primary')]").first.highlight()
+
     finally:
         browser.close()

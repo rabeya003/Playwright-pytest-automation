@@ -1,18 +1,14 @@
 from playwright.sync_api import sync_playwright
 
-with sync_playwright() as playwright:
-    browser=playwright.chromium.launch(headless=False,slow_mo=2500)
-    
-    #create a new page
-    page=browser.new_page()
+with sync_playwright() as p:
+    browser = p.chromium.launch(headless=False, slow_mo=2500)
+    page = browser.new_page()
 
-    # visit the Bootswatch website 
-    page.goto("https:/unsplash.com")
-    page.get_by_alt_text("a group of people sitting arround a table with food").highlight()
+    page.goto("https://unsplash.com", wait_until="domcontentloaded")
 
-    # # Locating with CSS Selectors
-    # page.locator("css=h1").highlight()
-    # page.locator("footer").highlight()
+    # Unsplash changes often, so use a safer selector (example: search box)
+    page.locator('input[type="search"]').first.scroll_into_view_if_needed()
+    page.locator('input[type="search"]').first.highlight()
 
-
-page.locator("nav.bg-dark a.nav-link.active").highlight()
+    page.wait_for_timeout(8000)
+    browser.close()
