@@ -15,6 +15,6 @@ with sync_playwright() as p:
     multi_select = page.get_by_label("Example multiple select")
     multi_select.scroll_into_view_if_needed()
     multi_select.select_option(["2", "3", "1"])  # multi-select
-    multi_select.select_option(["1", "3", "5"]) 
+    multi_select.select_option(["1", "3", "5"]) (["2", "4", "5"]) 
 
     page.pause()  
