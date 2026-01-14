@@ -19,6 +19,25 @@ with sync_playwright() as p:
     # Pause so you can see the text
     page.wait_for_timeout(800)
 
+    # Clear like a user (slowly)
+    textarea.press("Control+A")
+    page.wait_for_timeout(300)
+    textarea.press("Backspace")
+    page.wait_for_timeout(500)
 
+    # Press keys slowly so you can see what happens
+    textarea.press("KeyW")
+    page.wait_for_timeout(300)
+    textarea.press("KeyO")
+    page.wait_for_timeout(300)
+    textarea.press("KeyR")
+    page.wait_for_timeout(300)
+    textarea.press("Shift+KeyD")
+    page.wait_for_timeout(500)
+
+    textarea.press("Control+ArrowLeft")
+    page.wait_for_timeout(500)
+    textarea.press("ArrowRight")
+    page.wait_for_timeout(1500)
 
     browser.close()
