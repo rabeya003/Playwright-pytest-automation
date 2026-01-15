@@ -14,7 +14,7 @@ with sync_playwright() as p:
     textarea.click()
 
     # Type slowly
-    textarea.type("Rabeya Boshri", delay=200)
+    textarea.type("Sabbir Hossain,,, Sales & Marketing", delay=200)
 
     # Pause so you can see the text
     page.wait_for_timeout(800)
